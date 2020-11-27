@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+   xmlns="http://xamarin.com/schemas/2014/forms"
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+   xmlns:ffimaeloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" 
+   xmlns:xforms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
+   xmlns:busyIndicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+   x:Class="Countries.Prism.Views.CountryDetails">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame BackgroundColor="LightBlue">
+                    <ffimaeloadingsvg:SvgCachedImage Grid.Column="0"
+               Aspect="AspectFill"
+               Source="{Binding Country.Flag}" 
+               CacheDuration= "50"
+               Margin="5"
+               RetryCount= "3"
+               RetryDelay= "600"
+               WidthRequest="300"
+               HeightRequest="200" 
+               HorizontalOptions="Fill"/>
+                </Frame>
+                <Grid BackgroundColor="White" RowSpacing="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="1" Grid.Column="1" >
+                        <Label Text="NAME"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1" >
+                        <Label Text="{Binding Country.Name, TargetNullValue='Not Available'}"                                    
+                     LineBreakMode="TailTruncation"
+                     FontAttributes="Italic" 
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="1">
+                        <Label Text="CAPITAL"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.Column="1">
+                        <Label Text="{Binding Country.Capital, TargetNullValue='Not Available'}"                                    
+                     LineBreakMode="TailTruncation"
+                     FontAttributes="Italic" 
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5" Grid.Column="1">
+                        <Label Text="REGION"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="6" Grid.Column="1">
+                        <Label Text="{Binding Country.Region, TargetNullValue='Not Available'}"                                    
+                     LineBreakMode="TailTruncation"
+                     FontAttributes="Italic" 
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="7" Grid.Column="1">
+                        <Label Text="SUBREGION"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="8" Grid.Column="1">
+                        <Label Text="{Binding Country.Subregion, TargetNullValue='Not Available'}"                                    
+                     LineBreakMode="TailTruncation"
+                     FontAttributes="Italic" 
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="9" Grid.Column="1">
+                        <Label Text="POPULATION"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="10" Grid.Column="1">
+                        <Label Text="{Binding Country.Population, TargetNullValue='No Information Regarding the number of '} "                                    
+                     LineBreakMode="TailTruncation"
+                     FontAttributes="Italic" 
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                    </StackLayout>
+                </Grid>
+                <Grid BackgroundColor="White">
+                    <StackLayout Grid.Row="0" Grid.Column="0" HeightRequest="170">
+                        <Label Text="CURRENCY"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                        <xforms:SfListView x:Name="listViewCurrency" ItemsSource="{Binding Country.Currencies}" SelectionMode="None">
+                            <xforms:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Text="{Binding name}" FontAttributes="Italic" VerticalTextAlignment="Center" TextColor="Black" FontSize="15" HorizontalOptions="CenterAndExpand"  />
+                                    </Grid>
+                                </DataTemplate>
+                            </xforms:SfListView.ItemTemplate>
+                        </xforms:SfListView>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="0" HeightRequest="170" BackgroundColor="White">
+                        <Label Text="LANGUAGE(S)"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                        <xforms:SfListView x:Name="listViewLanguage"
+                     ItemsSource="{Binding Country.Languages}" SelectionMode="None">
+                            <xforms:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Text="{Binding name}" FontAttributes="Italic" VerticalTextAlignment="Center" TextColor="Black" FontSize="15" HorizontalOptions="CenterAndExpand"  />
+                                    </Grid>
+                                </DataTemplate>
+                            </xforms:SfListView.ItemTemplate>
+                        </xforms:SfListView>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="0" HeightRequest="170" BackgroundColor="White" HorizontalOptions="CenterAndExpand">
+                        <Label Text="BORDERS WITH"
+                     FontAttributes="Bold"
+                     FontSize="Medium"
+                     HorizontalOptions="CenterAndExpand" />
+                        <BoxView 
+                     HeightRequest="1"
+                     Color="LightGray"
+                     Margin ="40, 0, 40, 0"/>
+                        <ListView ItemsSource="{Binding Country.borders}"  SelectionMode="None" HorizontalOptions="CenterAndExpand" SeparatorColor="Transparent" RefreshControlColor="Black" >
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
